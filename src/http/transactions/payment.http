@@ -1,0 +1,82 @@
+// payment.http
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYwMzA4MjQwLCJleHAiOjE3NjAzMDg4NDB9.bJU_LaOKpYJ6fmBZ5VY1BEzOXeS1UGr0-9HUTs59y_s
+@baseUrl = http://localhost:3000
+
+### ========== PUBLIC ==========
+
+### List payments (PUBLIC)
+GET {{baseUrl}}/api/payment/public
+
+### Get payment by ID (PUBLIC)
+GET {{baseUrl}}/api/payment/public/1
+
+### Create payment (PUBLIC)
+POST {{baseUrl}}/api/payment/public
+Content-Type: application/json
+
+{
+  "saleId": 1,
+  "amount": 23800,
+  "method": "CARD",
+  "paidAt": "2025-10-11T16:25:00Z",
+  "status": "PAID",
+  "reference": "TRX-123456"
+}
+
+### Update payment (PUBLIC)
+PATCH {{baseUrl}}/api/payment/public/1
+Content-Type: application/json
+
+{
+  "status": "REFUNDED",
+  "reference": "REF-98765"
+}
+
+### Hard delete payment (PUBLIC)
+DELETE {{baseUrl}}/api/payment/public/1
+
+### Soft delete payment (PUBLIC)
+DELETE {{baseUrl}}/api/payment/public/1/logic
+
+
+### ========== AUTHENTICATED ==========
+
+### List payments (AUTH)
+GET {{baseUrl}}/api/payment
+Authorization: Bearer {{token}}
+
+### Get payment by ID (AUTH)
+GET {{baseUrl}}/api/payment/1
+Authorization: Bearer {{token}}
+
+### Create payment (AUTH)
+POST {{baseUrl}}/api/payment
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "saleId": 1,
+  "amount": 23800,
+  "method": "CARD",
+  "paidAt": "2025-10-11T16:25:00Z",
+  "status": "PAID",
+  "reference": "TRX-123456"
+}
+
+### Update payment (AUTH)
+PATCH {{baseUrl}}/api/payment/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "status": "REFUNDED",
+  "reference": "REF-98765"
+}
+
+### Hard delete payment (AUTH)
+DELETE {{baseUrl}}/api/payment/1
+Authorization: Bearer {{token}}
+
+### Soft delete payment (AUTH)
+DELETE {{baseUrl}}/api/payment/1/logic
+Authorization: Bearer {{token}}

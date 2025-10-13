@@ -1,0 +1,84 @@
+// sale.http
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYwMzA4OTI0LCJleHAiOjE3NjAzMDk1MjR9.H_swpJrCn0KBFihJ5tsDU3_drkf2WtezO9G3PiDfdJI
+@baseUrl = http://localhost:3000
+
+### ========== PUBLIC ==========
+
+### List sales (PUBLIC)
+GET {{baseUrl}}/api/sale/public
+
+### Get sale by ID (PUBLIC)
+GET {{baseUrl}}/api/sale/public/1
+
+### Create sale (PUBLIC)
+POST {{baseUrl}}/api/sale/public
+Content-Type: application/json
+
+{
+  "customerId": 1,
+  "saleDate": "2025-10-11T16:20:00Z",
+  "subtotal": 20000,
+  "taxTotal": 3800,
+  "total": 23800,
+  "status": "ACTIVE",
+  "taxId": 1
+}
+
+### Update sale (PUBLIC)
+PATCH {{baseUrl}}/api/sale/public/1
+Content-Type: application/json
+
+{
+  "status": "ACTIVE",
+  "taxId": 1
+}
+
+### Hard delete sale (PUBLIC)
+DELETE {{baseUrl}}/api/sale/public/1
+
+### Soft delete sale (PUBLIC)
+DELETE {{baseUrl}}/api/sale/public/1/logic
+
+
+### ========== AUTHENTICATED ==========
+
+### List sales (AUTH)
+GET {{baseUrl}}/api/sale
+Authorization: Bearer {{token}}
+
+### Get sale by ID (AUTH)
+GET {{baseUrl}}/api/sale/1
+Authorization: Bearer {{token}}
+
+### Create sale (AUTH)
+POST {{baseUrl}}/api/sale
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "customerId": 1,
+  "saleDate": "2025-10-11T16:20:00Z",
+  "subtotal": 20000,
+  "taxTotal": 3800,
+  "total": 23800,
+  "status": "ACTIVE",
+  "taxId": 1
+}
+
+### Update sale (AUTH)
+PATCH {{baseUrl}}/api/sale/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "status": "ACTIVE",
+  "taxId": 1
+}
+
+### Hard delete sale (AUTH)
+DELETE {{baseUrl}}/api/sale/1
+Authorization: Bearer {{token}}
+
+### Soft delete sale (AUTH)
+DELETE {{baseUrl}}/api/sale/1/logic
+Authorization: Bearer {{token}}

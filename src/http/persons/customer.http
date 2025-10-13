@@ -1,0 +1,92 @@
+// customer.http
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYwMzA2NTA0LCJleHAiOjE3NjAzMDcxMDR9.FVBi4tQ5zqatcbG0jKMGXo7EMYrRPSzzTOWIlmcDahU
+@baseUrl = http://localhost:3000
+
+### ========== PUBLIC ==========
+
+### List customers (PUBLIC)
+GET {{baseUrl}}/api/customer/public
+
+### Get customer by ID (PUBLIC)
+GET {{baseUrl}}/api/customer/public/1
+
+### Create customer (PUBLIC)
+POST {{baseUrl}}/api/customer/public
+Content-Type: application/json
+
+{
+  "username": "jquintero",
+  "password": "PlainOrHashed",
+  "firstName": "Jaider",
+  "lastName": "Quintero",
+  "documentType": "CC",
+  "documentNumber": "1234567890",
+  "phone": "3001234567",
+  "email": "jaider@example.com",
+  "address": "Km 1",
+  "status": "ACTIVE"
+}
+
+### Update customer (PUBLIC)
+PATCH {{baseUrl}}/api/customer/public/1
+Content-Type: application/json
+
+{
+  "phone": "3007654321",
+  "email": "jaider.updated@example.com",
+  "status": "ACTIVE"
+}
+
+### Hard delete customer (PUBLIC)
+DELETE {{baseUrl}}/api/customer/public/1
+
+### Soft delete customer (PUBLIC)
+DELETE {{baseUrl}}/api/customer/public/1/logic
+
+
+### ========== AUTHENTICATED ==========
+
+### List customers (AUTH)
+GET {{baseUrl}}/api/customer
+Authorization: Bearer {{token}}
+
+### Get customer by ID (AUTH)
+GET {{baseUrl}}/api/customer/1
+Authorization: Bearer {{token}}
+
+### Create customer (AUTH)
+POST {{baseUrl}}/api/customer
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "username": "jquintero",
+  "password": "PlainOrHashed",
+  "firstName": "Jaider",
+  "lastName": "Quintero",
+  "documentType": "CC",
+  "documentNumber": "1234567890",
+  "phone": "3001234567",
+  "email": "jaider@example.com",
+  "address": "Km 1",
+  "status": "ACTIVE"
+}
+
+### Update customer (AUTH)
+PATCH {{baseUrl}}/api/customer/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "phone": "3007654321",
+  "email": "jaider.updated@example.com",
+  "status": "ACTIVE"
+}
+
+### Hard delete customer (AUTH)
+DELETE {{baseUrl}}/api/customer/1
+Authorization: Bearer {{token}}
+
+### Soft delete customer (AUTH)
+DELETE {{baseUrl}}/api/customer/1/logic
+Authorization: Bearer {{token}}

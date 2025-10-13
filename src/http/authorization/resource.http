@@ -1,0 +1,739 @@
+### resource.http
+
+@baseUrl = http://localhost:3000
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYwMjMwNzU0LCJleHAiOjE3NjAyMzEzNTR9.qdGzduLMcwKWABGi0GzoLSLrxt74Ua_xO5wjAIvmJOM
+
+### ================== RUTAS SIN AUTENTICACIÓN ==================
+
+## Obtener todos los recursos (SIN token)
+GET {{baseUrl}}/api/resources/public
+
+### Obtener recurso por ID (SIN token)
+GET {{baseUrl}}/api/resources/public/5
+
+### Eliminar un recurso físicamente (SIN token)
+DELETE {{baseUrl}}/api/resources/public/1
+
+### Eliminar un recurso lógicamente (SIN token)
+DELETE {{baseUrl}}/api/resources/public/2/logic
+
+### ================== TAX ==================
+### Mostrar taxes (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/tax",
+  "method": "GET",
+  "is_active": "ACTIVE"
+}
+
+### Mostrar tax por ID (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/tax/:id",
+  "method": "GET",
+  "is_active": "ACTIVE"
+}
+
+### Crear un nuevo tax (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/tax",
+  "method": "POST",
+  "is_active": "ACTIVE"
+}
+
+### Actualizar un tax (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/tax/:id",
+  "method": "PATCH",
+  "is_active": "ACTIVE"
+}
+
+
+### Eliminar un tax físicamente (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/tax/:id",
+  "method": "DELETE",
+  "is_active": "ACTIVE"
+}
+
+### Eliminar un tax lógicamente (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/tax/:id/logic",
+  "method": "DELETE",
+  "is_active": "ACTIVE"
+}
+
+### ================== CATEGORY ==================
+### Mostrar categories (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/category",
+  "method": "GET",
+  "is_active": "ACTIVE"
+}
+
+### Mostrar category por ID (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/category/:id",
+  "method": "GET",
+  "is_active": "ACTIVE"
+}
+
+### Crear un nuevo category (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/category",
+  "method": "POST",
+  "is_active": "ACTIVE"
+}
+
+### Actualizar un category (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/category/:id",
+  "method": "PATCH",
+  "is_active": "ACTIVE"
+}
+
+### Eliminar un category físicamente (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/category/:id",
+  "method": "DELETE",
+  "is_active": "ACTIVE"
+}
+
+### Eliminar un category lógicamente (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/category/:id/logic",
+  "method": "DELETE",
+  "is_active": "ACTIVE"
+}
+
+
+### ================== SUPPLIER ==================
+### Mostrar suppliers (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/supplier",
+  "method": "GET",
+  "is_active": "ACTIVE"
+}
+
+### Mostrar supplier por ID (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/supplier/:id",
+  "method": "GET",
+  "is_active": "ACTIVE"
+}
+
+### Crear un nuevo supplier (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/supplier",
+  "method": "POST",
+  "is_active": "ACTIVE"
+}
+
+### Actualizar un supplier (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/supplier/:id",
+  "method": "PATCH",
+  "is_active": "ACTIVE"
+}
+
+### Eliminar un supplier físicamente (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/supplier/:id",
+  "method": "DELETE",
+  "is_active": "ACTIVE"
+}
+
+### Eliminar un supplier lógicamente (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/supplier/:id/logic",
+  "method": "DELETE",
+  "is_active": "ACTIVE"
+}
+
+
+### ================== CUSTOMER ==================
+### Mostrar customers (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/customer",
+  "method": "GET",
+  "is_active": "ACTIVE"
+}
+
+### Mostrar customer por ID (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/customer/:id",
+  "method": "GET",
+  "is_active": "ACTIVE"
+}
+
+### Crear un nuevo customer (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/customer",
+  "method": "POST",
+  "is_active": "ACTIVE"
+}
+
+### Actualizar un customer (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/customer/:id",
+  "method": "PATCH",
+  "is_active": "ACTIVE"
+}
+
+### Eliminar un customer físicamente (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/customer/:id",
+  "method": "DELETE",
+  "is_active": "ACTIVE"
+}
+
+### Eliminar un customer lógicamente (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/customer/:id/logic",
+  "method": "DELETE",
+  "is_active": "ACTIVE"
+}
+
+
+### ================== MEDICATION ==================
+### Mostrar medications (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/medication",
+  "method": "GET",
+  "is_active": "ACTIVE"
+}
+
+### Mostrar medication por ID (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/medication/:id",
+  "method": "GET",
+  "is_active": "ACTIVE"
+}
+
+### Crear un nuevo medication (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/medication",
+  "method": "POST",
+  "is_active": "ACTIVE"
+}
+
+### Actualizar un medication (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/medication/:id",
+  "method": "PATCH",
+  "is_active": "ACTIVE"
+}
+
+### Eliminar un medication físicamente (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/medication/:id",
+  "method": "DELETE",
+  "is_active": "ACTIVE"
+}
+
+### Eliminar un medication lógicamente (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/medication/:id/logic",
+  "method": "DELETE",
+  "is_active": "ACTIVE"
+}
+
+
+### ================== LOT ==================
+### Mostrar lots (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/lot",
+  "method": "GET",
+  "is_active": "ACTIVE"
+}
+
+### Mostrar lot por ID (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/lot/:id",
+  "method": "GET",
+  "is_active": "ACTIVE"
+}
+
+### Crear un nuevo lot (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/lot",
+  "method": "POST",
+  "is_active": "ACTIVE"
+}
+
+### Actualizar un lot (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/lot/:id",
+  "method": "PATCH",
+  "is_active": "ACTIVE"
+}
+
+### Eliminar un lot físicamente (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/lot/:id",
+  "method": "DELETE",
+  "is_active": "ACTIVE"
+}
+
+### Eliminar un lot lógicamente (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/lot/:id/logic",
+  "method": "DELETE",
+  "is_active": "ACTIVE"
+}
+
+
+### ================== RECIPE ==================
+### Mostrar recipes (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/recipe",
+  "method": "GET",
+  "is_active": "ACTIVE"
+}
+
+### Mostrar recipe por ID (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/recipe/:id",
+  "method": "GET",
+  "is_active": "ACTIVE"
+}
+
+### Crear un nuevo recipe (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/recipe",
+  "method": "POST",
+  "is_active": "ACTIVE"
+}
+
+### Actualizar un recipe (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/recipe/:id",
+  "method": "PATCH",
+  "is_active": "ACTIVE"
+}
+
+### Eliminar un recipe físicamente (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/recipe/:id",
+  "method": "DELETE",
+  "is_active": "ACTIVE"
+}
+
+### Eliminar un recipe lógicamente (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/recipe/:id/logic",
+  "method": "DELETE",
+  "is_active": "ACTIVE"
+}
+
+
+### ================== RECIPE-DETAIL ==================
+### Mostrar recipe-details (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/recipe-detail",
+  "method": "GET",
+  "is_active": "ACTIVE"
+}
+
+### Mostrar recipe-detail por ID (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/recipe-detail/:id",
+  "method": "GET",
+  "is_active": "ACTIVE"
+}
+
+### Crear un nuevo recipe-detail (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/recipe-detail",
+  "method": "POST",
+  "is_active": "ACTIVE"
+}
+
+### Actualizar un recipe-detail (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/recipe-detail/:id",
+  "method": "PATCH",
+  "is_active": "ACTIVE"
+}
+
+### Eliminar un recipe-detail físicamente (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/recipe-detail/:id",
+  "method": "DELETE",
+  "is_active": "ACTIVE"
+}
+
+### Eliminar un recipe-detail lógicamente (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/recipe-detail/:id/logic",
+  "method": "DELETE",
+  "is_active": "ACTIVE"
+}
+
+
+### ================== SALE ==================
+### Mostrar sales (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/sale",
+  "method": "GET",
+  "is_active": "ACTIVE"
+}
+
+### Mostrar sale por ID (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/sale/:id",
+  "method": "GET",
+  "is_active": "ACTIVE"
+}
+
+### Crear un nuevo sale (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/sale",
+  "method": "POST",
+  "is_active": "ACTIVE"
+}
+
+### Actualizar un sale (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/sale/:id",
+  "method": "PATCH",
+  "is_active": "ACTIVE"
+}
+
+### Eliminar un sale físicamente (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/sale/:id",
+  "method": "DELETE",
+  "is_active": "ACTIVE"
+}
+
+### Eliminar un sale lógicamente (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/sale/:id/logic",
+  "method": "DELETE",
+  "is_active": "ACTIVE"
+}
+
+
+### ================== SALE-DETAIL ==================
+### Mostrar sale-details (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/sale-detail",
+  "method": "GET",
+  "is_active": "ACTIVE"
+}
+
+### Mostrar sale-detail por ID (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/sale-detail/:id",
+  "method": "GET",
+  "is_active": "ACTIVE"
+}
+
+### Crear un nuevo sale-detail (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/sale-detail",
+  "method": "POST",
+  "is_active": "ACTIVE"
+}
+
+### Actualizar un sale-detail (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/sale-detail/:id",
+  "method": "PATCH",
+  "is_active": "ACTIVE"
+}
+
+### Eliminar un sale-detail físicamente (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/sale-detail/:id",
+  "method": "DELETE",
+  "is_active": "ACTIVE"
+}
+
+### Eliminar un sale-detail lógicamente (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/sale-detail/:id/logic",
+  "method": "DELETE",
+  "is_active": "ACTIVE"
+}
+
+
+### ================== PAYMENT ==================
+### Mostrar payments (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/payment",
+  "method": "GET",
+  "is_active": "ACTIVE"
+}
+
+### Mostrar payment por ID (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/payment/:id",
+  "method": "GET",
+  "is_active": "ACTIVE"
+}
+
+### Crear un nuevo payment (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/payment",
+  "method": "POST",
+  "is_active": "ACTIVE"
+}
+
+### Actualizar un payment (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/payment/:id",
+  "method": "PATCH",
+  "is_active": "ACTIVE"
+}
+
+### Eliminar un payment físicamente (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/payment/:id",
+  "method": "DELETE",
+  "is_active": "ACTIVE"
+}
+
+### Eliminar un payment lógicamente (SIN token)
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/payment/:id/logic",
+  "method": "DELETE",
+  "is_active": "ACTIVE"
+}
+
+### ================== RUTAS CON AUTENTICACIÓN ==================
+
+### Obtener todos los recursos (CON token)
+GET {{baseUrl}}/api/resources
+Authorization: Bearer {{token}}
+
+### Obtener recurso por ID (CON token)
+GET {{baseUrl}}/api/resources/1
+Authorization: Bearer {{token}}
+
+### Crear un nuevo recurso (CON token)
+POST {{baseUrl}}/api/resources
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "path": "/api/users",
+  "method": "POST",
+  "is_active": "ACTIVE"
+}
+
+### Actualizar un recurso (CON token)
+PATCH {{baseUrl}}/api/resources/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "path": "/api/users/:id",
+  "method": "PATCH",
+  "is_active": "ACTIVE"
+}
+
+### Eliminar un recurso físicamente (CON token)
+DELETE {{baseUrl}}/api/resources/1
+Authorization: Bearer {{token}}
+
+### Eliminar un recurso lógicamente (CON token)
+DELETE {{baseUrl}}/api/resources/1/logic
+Authorization: Bearer {{token}}

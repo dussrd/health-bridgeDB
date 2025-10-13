@@ -1,0 +1,78 @@
+// category.http
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYwMzE2MzE3LCJleHAiOjE3NjAzMTY5MTd9.RU1S9yMCbTOTEcGoglUjV1qvKIAhbHs78kTQPBoDVyQ
+@baseUrl = http://localhost:3000
+
+### ========== PUBLIC ==========
+
+### List categories (PUBLIC)
+GET {{baseUrl}}/api/category/public
+
+### Get category by ID (PUBLIC)
+GET {{baseUrl}}/api/category/public/1
+
+### Create category (PUBLIC)
+POST {{baseUrl}}/api/category/public
+Content-Type: application/json
+
+{
+  "name": "Antibiotics",
+  "description": "Bacterial infection meds",
+  "status": "ACTIVE"
+}
+
+### Update category (PUBLIC)
+PATCH {{baseUrl}}/api/category/public/1
+Content-Type: application/json
+
+{
+  "name": "Analgesics",
+  "description": "Pain relief meds",
+  "status": "ACTIVE"
+}
+
+### Hard delete category (PUBLIC)
+DELETE {{baseUrl}}/api/category/public/1
+
+### Soft delete category (PUBLIC)
+DELETE {{baseUrl}}/api/category/public/1/logic
+
+
+### ========== AUTHENTICATED ==========
+
+### List categories (AUTH)
+GET {{baseUrl}}/api/category
+Authorization: Bearer {{token}}
+
+### Get category by ID (AUTH)
+GET {{baseUrl}}/api/category/1
+Authorization: Bearer {{token}}
+
+### Create category (AUTH)
+POST {{baseUrl}}/api/category
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "name": "Antibiotics",
+  "description": "Bacterial infection meds",
+  "status": "ACTIVE"
+}
+
+### Update category (AUTH)
+PATCH {{baseUrl}}/api/category/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "name": "Analgesics",
+  "description": "Pain relief meds",
+  "status": "ACTIVE"
+}
+
+### Hard delete category (AUTH)
+DELETE {{baseUrl}}/api/category/5
+Authorization: Bearer {{token}}
+
+### Soft delete category (AUTH)
+DELETE {{baseUrl}}/api/category/9/logic
+Authorization: Bearer {{token}}

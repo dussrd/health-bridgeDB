@@ -1,0 +1,78 @@
+// recipe-detail.http
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYwMzA4MjQwLCJleHAiOjE3NjAzMDg4NDB9.bJU_LaOKpYJ6fmBZ5VY1BEzOXeS1UGr0-9HUTs59y_s
+@baseUrl = http://localhost:3000
+
+### ========== PUBLIC ==========
+
+### List recipe details (PUBLIC)
+GET {{baseUrl}}/api/recipe-detail/public
+
+### Get recipe detail by ID (PUBLIC)
+GET {{baseUrl}}/api/recipe-detail/public/1
+
+### Create recipe detail (PUBLIC)
+POST {{baseUrl}}/api/recipe-detail/public
+Content-Type: application/json
+
+{
+  "recipeId": 1,
+  "medicationId": 1,
+  "dosage": "500mg every 8h for 7 days",
+  "quantity": 21
+}
+
+### Update recipe detail (PUBLIC)
+PATCH {{baseUrl}}/api/recipe-detail/public/1
+Content-Type: application/json
+
+{
+  "dosage": "500mg every 12h for 7 days",
+  "quantity": 14
+}
+
+### Hard delete recipe detail (PUBLIC)
+DELETE {{baseUrl}}/api/recipe-detail/public/1
+
+### Soft delete recipe detail (PUBLIC)
+DELETE {{baseUrl}}/api/recipe-detail/public/1/logic
+
+
+### ========== AUTHENTICATED ==========
+
+### List recipe details (AUTH)
+GET {{baseUrl}}/api/recipe-detail
+Authorization: Bearer {{token}}
+
+### Get recipe detail by ID (AUTH)
+GET {{baseUrl}}/api/recipe-detail/1
+Authorization: Bearer {{token}}
+
+### Create recipe detail (AUTH)
+POST {{baseUrl}}/api/recipe-detail
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "recipeId": 1,
+  "medicationId": 1,
+  "dosage": "500mg every 8h for 7 days",
+  "quantity": 21
+}
+
+### Update recipe detail (AUTH)
+PATCH {{baseUrl}}/api/recipe-detail/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "dosage": "500mg every 12h for 7 days",
+  "quantity": 14
+}
+
+### Hard delete recipe detail (AUTH)
+DELETE {{baseUrl}}/api/recipe-detail/1
+Authorization: Bearer {{token}}
+
+### Soft delete recipe detail (AUTH)
+DELETE {{baseUrl}}/api/recipe-detail/1/logic
+Authorization: Bearer {{token}}

@@ -1,0 +1,82 @@
+// sale-detail.http
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYwMzA4MjQwLCJleHAiOjE3NjAzMDg4NDB9.bJU_LaOKpYJ6fmBZ5VY1BEzOXeS1UGr0-9HUTs59y_s
+@baseUrl = http://localhost:3000
+
+### ========== PUBLIC ==========
+
+### List sale details (PUBLIC)
+GET {{baseUrl}}/api/sale-detail/public
+
+### Get sale detail by ID (PUBLIC)
+GET {{baseUrl}}/api/sale-detail/public/1
+
+### Create sale detail (PUBLIC)
+POST {{baseUrl}}/api/sale-detail/public
+Content-Type: application/json
+
+{
+  "saleId": 1,
+  "medicationId": 1,
+  "quantity": 2,
+  "unitPrice": 12000,
+  "discount": 0
+}
+
+### Update sale detail (PUBLIC)
+PATCH {{baseUrl}}/api/sale-detail/public/1
+Content-Type: application/json
+
+{
+  "quantity": 3,
+  "unitPrice": 11500,
+  "discount": 500
+}
+
+### Hard delete sale detail (PUBLIC)
+DELETE {{baseUrl}}/api/sale-detail/public/1
+
+### Soft delete sale detail (PUBLIC)
+DELETE {{baseUrl}}/api/sale-detail/public/1/logic
+
+
+### ========== AUTHENTICATED ==========
+
+### List sale details (AUTH)
+GET {{baseUrl}}/api/sale-detail
+Authorization: Bearer {{token}}
+
+### Get sale detail by ID (AUTH)
+GET {{baseUrl}}/api/sale-detail/1
+Authorization: Bearer {{token}}
+
+### Create sale detail (AUTH)
+POST {{baseUrl}}/api/sale-detail
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "saleId": 1,
+  "medicationId": 1,
+  "quantity": 2,
+  "unitPrice": 12000,
+  "discount": 0
+}
+
+### Update sale detail (AUTH)
+PATCH {{baseUrl}}/api/sale-detail/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "quantity": 3,
+  "unitPrice": 11500,
+  "discount": 500
+}
+
+### Hard delete sale detail (AUTH)
+DELETE {{baseUrl}}/api/sale-detail/1
+Authorization: Bearer {{token}}
+
+### Soft delete sale detail (AUTH)
+DELETE {{baseUrl}}/api/sale-detail/1/logic
+Authorization: Bearer {{token}}

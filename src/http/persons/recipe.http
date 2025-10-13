@@ -1,0 +1,78 @@
+// recipe.http
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYwMzA4MjQwLCJleHAiOjE3NjAzMDg4NDB9.bJU_LaOKpYJ6fmBZ5VY1BEzOXeS1UGr0-9HUTs59y_s
+@baseUrl = http://localhost:3000
+
+### ========== PUBLIC ==========
+
+### List recipes (PUBLIC)
+GET {{baseUrl}}/api/recipe/public
+
+### Get recipe by ID (PUBLIC)
+GET {{baseUrl}}/api/recipe/public/1
+
+### Create recipe (PUBLIC)
+POST {{baseUrl}}/api/recipe/public
+Content-Type: application/json
+
+{
+  "customerId": 1,
+  "issuedAt": "2025-10-10T14:00:00Z",
+  "notes": "Take with food",
+  "status": "VALID"
+}
+
+### Update recipe (PUBLIC)
+PATCH {{baseUrl}}/api/recipe/public/1
+Content-Type: application/json
+
+{
+  "notes": "Updated instructions",
+  "status": "VALID"
+}
+
+### Hard delete recipe (PUBLIC)
+DELETE {{baseUrl}}/api/recipe/public/1
+
+### Soft delete recipe (PUBLIC)
+DELETE {{baseUrl}}/api/recipe/public/1/logic
+
+
+### ========== AUTHENTICATED ==========
+
+### List recipes (AUTH)
+GET {{baseUrl}}/api/recipe
+Authorization: Bearer {{token}}
+
+### Get recipe by ID (AUTH)
+GET {{baseUrl}}/api/recipe/1
+Authorization: Bearer {{token}}
+
+### Create recipe (AUTH)
+POST {{baseUrl}}/api/recipe
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "customerId": 1,
+  "issuedAt": "2025-10-10T14:00:00Z",
+  "notes": "Take with food",
+  "status": "VALID"
+}
+
+### Update recipe (AUTH)
+PATCH {{baseUrl}}/api/recipe/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "notes": "Updated instructions",
+  "status": "VALID"
+}
+
+### Hard delete recipe (AUTH)
+DELETE {{baseUrl}}/api/recipe/1
+Authorization: Bearer {{token}}
+
+### Soft delete recipe (AUTH)
+DELETE {{baseUrl}}/api/recipe/1/logic
+Authorization: Bearer {{token}}

@@ -1,0 +1,86 @@
+// medication.http
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYwMzA4MjQwLCJleHAiOjE3NjAzMDg4NDB9.bJU_LaOKpYJ6fmBZ5VY1BEzOXeS1UGr0-9HUTs59y_s
+@baseUrl = http://localhost:3000
+
+### ========== PUBLIC ==========
+
+### List medications (PUBLIC)
+GET {{baseUrl}}/api/medication/public
+
+### Get medication by ID (PUBLIC)
+GET {{baseUrl}}/api/medication/public/1
+
+### Create medication (PUBLIC)
+POST {{baseUrl}}/api/medication/public
+Content-Type: application/json
+
+{
+  "name": "Amoxicillin 500mg",
+  "description": "Capsules",
+  "unit": "capsule",
+  "price": 1200.50,
+  "stock": 150,
+  "categoryId": 1,
+  "status": "AVAILABLE"
+}
+
+### Update medication (PUBLIC)
+PATCH {{baseUrl}}/api/medication/public/1
+Content-Type: application/json
+
+{
+  "price": 1300.00,
+  "stock": 200,
+  "status": "AVAILABLE"
+}
+
+### Hard delete medication (PUBLIC)
+DELETE {{baseUrl}}/api/medication/public/1
+
+### Soft delete medication (PUBLIC)
+DELETE {{baseUrl}}/api/medication/public/1/logic
+
+
+### ========== AUTHENTICATED ==========
+
+### List medications (AUTH)
+GET {{baseUrl}}/api/medication
+Authorization: Bearer {{token}}
+
+### Get medication by ID (AUTH)
+GET {{baseUrl}}/api/medication/1
+Authorization: Bearer {{token}}
+
+### Create medication (AUTH)
+POST {{baseUrl}}/api/medication
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "name": "Amoxicillin 500mg",
+  "description": "Capsules",
+  "unit": "capsule",
+  "price": 1200.50,
+  "stock": 150,
+  "categoryId": 1,
+  "status": "AVAILABLE"
+}
+
+### Update medication (AUTH)
+PATCH {{baseUrl}}/api/medication/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "price": 1300.00,
+  "stock": 200,
+  "status": "AVAILABLE"
+}
+
+### Hard delete medication (AUTH)
+DELETE {{baseUrl}}/api/medication/1
+Authorization: Bearer {{token}}
+
+### Soft delete medication (AUTH)
+DELETE {{baseUrl}}/api/medication/1/logic
+Authorization: Bearer {{token}}
