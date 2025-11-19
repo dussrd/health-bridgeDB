@@ -4,9 +4,23 @@ import { Tax, TaxI } from "../../models/finances/Tax";
 export class TaxController {
   public async getAllTaxes(req: Request, res: Response) {
     try {
-      const taxes: TaxI[] = await Tax.findAll({ where: { status: "ACTIVE" } });
+      const { status } = req.query as { status?: string };
+
+      // Armamos el "where" dinámico
+      const where: any = {};
+
+      if (!status || status === "ACTIVE") {
+        // por defecto solo activos (comportamiento anterior)
+        where.status = "ACTIVE";
+      } else if (status === "INACTIVE") {
+        where.status = "INACTIVE";
+      }
+      // si status === "ALL", no ponemos filtro de status
+
+      const taxes: TaxI[] = await Tax.findAll({ where });
       res.status(200).json({ taxes });
-    } catch {
+    } catch (error) {
+      console.error("Error fetching taxes", error);
       res.status(500).json({ error: "Error fetching taxes" });
     }
   }

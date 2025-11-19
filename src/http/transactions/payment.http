@@ -1,5 +1,5 @@
 // payment.http
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYwMzA4MjQwLCJleHAiOjE3NjAzMDg4NDB9.bJU_LaOKpYJ6fmBZ5VY1BEzOXeS1UGr0-9HUTs59y_s
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYwNTYyODI2LCJleHAiOjE3NjA1NjM0MjZ9.jzGYo0ZbZ9NoP4QVZkSdkKY_00C5cCD5GXPnRQ9d1og
 @baseUrl = http://localhost:3000
 
 ### ========== PUBLIC ==========
@@ -15,8 +15,8 @@ POST {{baseUrl}}/api/payment/public
 Content-Type: application/json
 
 {
-  "saleId": 1,
-  "amount": 23800,
+  "saleId": 3,
+  "amount": 24800,
   "method": "CARD",
   "paidAt": "2025-10-11T16:25:00Z",
   "status": "PAID",
@@ -24,7 +24,7 @@ Content-Type: application/json
 }
 
 ### Update payment (PUBLIC)
-PATCH {{baseUrl}}/api/payment/public/1
+PATCH {{baseUrl}}/api/payment/public/5
 Content-Type: application/json
 
 {
@@ -33,10 +33,10 @@ Content-Type: application/json
 }
 
 ### Hard delete payment (PUBLIC)
-DELETE {{baseUrl}}/api/payment/public/1
+DELETE {{baseUrl}}/api/payment/public/3
 
 ### Soft delete payment (PUBLIC)
-DELETE {{baseUrl}}/api/payment/public/1/logic
+DELETE {{baseUrl}}/api/payment/public/5/logic
 
 
 ### ========== AUTHENTICATED ==========
@@ -46,7 +46,7 @@ GET {{baseUrl}}/api/payment
 Authorization: Bearer {{token}}
 
 ### Get payment by ID (AUTH)
-GET {{baseUrl}}/api/payment/1
+GET {{baseUrl}}/api/payment/5
 Authorization: Bearer {{token}}
 
 ### Create payment (AUTH)
@@ -55,7 +55,7 @@ Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "saleId": 1,
+  "saleId": 6,
   "amount": 23800,
   "method": "CARD",
   "paidAt": "2025-10-11T16:25:00Z",
@@ -64,7 +64,7 @@ Content-Type: application/json
 }
 
 ### Update payment (AUTH)
-PATCH {{baseUrl}}/api/payment/1
+PATCH {{baseUrl}}/api/payment/73
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
@@ -74,9 +74,9 @@ Content-Type: application/json
 }
 
 ### Hard delete payment (AUTH)
-DELETE {{baseUrl}}/api/payment/1
+DELETE {{baseUrl}}/api/payment/5
 Authorization: Bearer {{token}}
 
 ### Soft delete payment (AUTH)
-DELETE {{baseUrl}}/api/payment/1/logic
+DELETE {{baseUrl}}/api/payment/73/logic
 Authorization: Bearer {{token}}

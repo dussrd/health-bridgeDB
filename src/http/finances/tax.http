@@ -1,5 +1,5 @@
 // tax.http
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYwMzE2MzE3LCJleHAiOjE3NjAzMTY5MTd9.RU1S9yMCbTOTEcGoglUjV1qvKIAhbHs78kTQPBoDVyQ
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYwNTYyMjEwLCJleHAiOjE3NjA1NjI4MTB9.M3jKLLfkO1_mjLNAxEPBR5fgEpINQpVL0aSWmINtqQA
 @baseUrl = http://localhost:3000
 
 ### ========== PUBLIC (no token) ==========
@@ -15,8 +15,8 @@ POST {{baseUrl}}/api/tax/public
 Content-Type: application/json
 
 {
-  "name": "VAT 19%",
-  "rate": 0.19,
+  "name": "VAT 49%",
+  "rate": 0.29,
   "status": "ACTIVE"
 }
 
@@ -25,7 +25,7 @@ PATCH {{baseUrl}}/api/tax/public/1
 Content-Type: application/json
 
 {
-  "name": "VAT 19% (updated)",
+  "name": "VAT 59%",
   "rate": 0.19,
   "status": "ACTIVE"
 }
@@ -34,7 +34,7 @@ Content-Type: application/json
 DELETE {{baseUrl}}/api/tax/public/1
 
 ### Soft delete tax (PUBLIC)
-DELETE {{baseUrl}}/api/tax/public/1/logic
+DELETE {{baseUrl}}/api/tax/public/2/logic
 
 
 ### ========== AUTHENTICATED (with token) ==========
@@ -44,7 +44,7 @@ GET {{baseUrl}}/api/tax
 Authorization: Bearer {{token}}
 
 ### Get tax by ID (AUTH)
-GET {{baseUrl}}/api/tax/3
+GET {{baseUrl}}/api/tax/4
 Authorization: Bearer {{token}}
 
 ### Create tax (AUTH)
@@ -53,7 +53,7 @@ Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "name": "VAT 15%",
+  "name": "VAT 22%",
   "rate": 0.14,
   "status": "ACTIVE"
 }
@@ -64,7 +64,7 @@ Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "name": "VAT 25%",
+  "name": "VAT 3%",
   "rate": "0.3",
   "status": "ACTIVE"
 }
@@ -74,5 +74,5 @@ DELETE {{baseUrl}}/api/tax/4
 Authorization: Bearer {{token}}
 
 ### Soft delete tax (AUTH)
-DELETE {{baseUrl}}/api/tax/2/logic
+DELETE {{baseUrl}}/api/tax/8/logic
 Authorization: Bearer {{token}}

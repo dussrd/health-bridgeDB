@@ -1,5 +1,5 @@
 // lot.http
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYwMzE2MzE3LCJleHAiOjE3NjAzMTY5MTd9.RU1S9yMCbTOTEcGoglUjV1qvKIAhbHs78kTQPBoDVyQ
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYwNTYyMjEwLCJleHAiOjE3NjA1NjI4MTB9.M3jKLLfkO1_mjLNAxEPBR5fgEpINQpVL0aSWmINtqQA
 @baseUrl = http://localhost:3000
 
 ### ========== PUBLIC ==========
@@ -17,7 +17,7 @@ Content-Type: application/json
 {
   "code": "L-AX500-2409",
   "medicationId": 1,
-  "supplierId": 1,
+  "supplierId": 3,
   "quantity": 500,
   "expirationDate": "2026-09-30",
   "receivedAt": "2025-09-10T10:30:00Z",
@@ -37,7 +37,7 @@ Content-Type: application/json
 DELETE {{baseUrl}}/api/lot/public/1
 
 ### Soft delete lot (PUBLIC)
-DELETE {{baseUrl}}/api/lot/public/1/logic
+DELETE {{baseUrl}}/api/lot/public/2/logic
 
 
 ### ========== AUTHENTICATED ==========
@@ -47,7 +47,7 @@ GET {{baseUrl}}/api/lot
 Authorization: Bearer {{token}}
 
 ### Get lot by ID (AUTH)
-GET {{baseUrl}}/api/lot/1
+GET {{baseUrl}}/api/lot/9
 Authorization: Bearer {{token}}
 
 ### Create lot (AUTH)
@@ -58,7 +58,7 @@ Content-Type: application/json
 {
   "code": "L-AX500-2409",
   "medicationId": 8,
-  "supplierId": 1,
+  "supplierId": 2,
   "quantity": 500,
   "expirationDate": "2026-09-30",
   "receivedAt": "2025-09-10T10:30:00Z",
@@ -66,7 +66,7 @@ Content-Type: application/json
 }
 
 ### Update lot (AUTH)
-PATCH {{baseUrl}}/api/lot/1
+PATCH {{baseUrl}}/api/lot/93
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
@@ -76,9 +76,9 @@ Content-Type: application/json
 }
 
 ### Hard delete lot (AUTH)
-DELETE {{baseUrl}}/api/lot/1
+DELETE {{baseUrl}}/api/lot/93
 Authorization: Bearer {{token}}
 
 ### Soft delete lot (AUTH)
-DELETE {{baseUrl}}/api/lot/1/logic
+DELETE {{baseUrl}}/api/lot/3/logic
 Authorization: Bearer {{token}}

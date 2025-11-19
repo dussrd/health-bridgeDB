@@ -3,13 +3,22 @@ import { Sale, SaleI } from "../../models/transactions/Sale";
 
 export class SaleController {
   public async getAllSales(req: Request, res: Response) {
-    try {
-      const sales: SaleI[] = await Sale.findAll({ where: { status: "ACTIVE" } });
-      res.status(200).json({ sales });
-    } catch {
-      res.status(500).json({ error: "Error fetching sales" });
+  try {
+    const status = req.query.status ?? "ACTIVE";
+
+    let where: any = {};
+
+    if (status !== "ALL") {
+      where.status = status;
     }
+
+    const sales: SaleI[] = await Sale.findAll({ where });
+
+    res.status(200).json({ sales });
+  } catch {
+    res.status(500).json({ error: "Error fetching sales" });
   }
+}
 
   public async getSaleById(req: Request, res: Response) {
     try {

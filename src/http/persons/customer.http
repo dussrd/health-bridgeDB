@@ -1,5 +1,5 @@
 // customer.http
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYwMzA2NTA0LCJleHAiOjE3NjAzMDcxMDR9.FVBi4tQ5zqatcbG0jKMGXo7EMYrRPSzzTOWIlmcDahU
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYwNTYyODI2LCJleHAiOjE3NjA1NjM0MjZ9.jzGYo0ZbZ9NoP4QVZkSdkKY_00C5cCD5GXPnRQ9d1og
 @baseUrl = http://localhost:3000
 
 ### ========== PUBLIC ==========
@@ -41,7 +41,7 @@ Content-Type: application/json
 DELETE {{baseUrl}}/api/customer/public/1
 
 ### Soft delete customer (PUBLIC)
-DELETE {{baseUrl}}/api/customer/public/1/logic
+DELETE {{baseUrl}}/api/customer/public/2/logic
 
 
 ### ========== AUTHENTICATED ==========
@@ -51,7 +51,7 @@ GET {{baseUrl}}/api/customer
 Authorization: Bearer {{token}}
 
 ### Get customer by ID (AUTH)
-GET {{baseUrl}}/api/customer/1
+GET {{baseUrl}}/api/customer/23
 Authorization: Bearer {{token}}
 
 ### Create customer (AUTH)
@@ -60,20 +60,20 @@ Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "username": "jquintero",
-  "password": "PlainOrHashed",
-  "firstName": "Jaider",
-  "lastName": "Quintero",
-  "documentType": "CC",
-  "documentNumber": "1234567890",
-  "phone": "3001234567",
-  "email": "jaider@example.com",
-  "address": "Km 1",
-  "status": "ACTIVE"
+  "username": "clotde.rutherford_5ibe",
+      "password": "XcJB11P2rWH",
+      "firstName": "Clotide",
+      "lastName": "Ruthrford",
+      "documentType": "TI",
+      "documentNumber": "10010004",
+      "phone": "470.210.9239 x7346",
+      "email": "Devn4@hotmail.com",
+      "address": "681 W 6th Avenue",
+      "status": "ACTIVE"
 }
 
 ### Update customer (AUTH)
-PATCH {{baseUrl}}/api/customer/1
+PATCH {{baseUrl}}/api/customer/49
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
@@ -84,9 +84,9 @@ Content-Type: application/json
 }
 
 ### Hard delete customer (AUTH)
-DELETE {{baseUrl}}/api/customer/1
+DELETE {{baseUrl}}/api/customer/49
 Authorization: Bearer {{token}}
 
 ### Soft delete customer (AUTH)
-DELETE {{baseUrl}}/api/customer/1/logic
+DELETE {{baseUrl}}/api/customer/3/logic
 Authorization: Bearer {{token}}

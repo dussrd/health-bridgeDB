@@ -3,13 +3,19 @@ import { Category, CategoryI } from "../../models/inventories/Category";
 
 export class CategoryController {
   public async getAllCategories(req: Request, res: Response) {
-    try {
-      const categories: CategoryI[] = await Category.findAll({ where: { status: "ACTIVE" } });
-      res.status(200).json({ categories });
-    } catch {
-      res.status(500).json({ error: "Error fetching categories" });
-    }
+  try {
+    const statusParam = String(req.query.status || '').toUpperCase(); // '', 'ALL', 'ACTIVE', 'INACTIVE'
+    const where =
+      statusParam === 'ALL'
+        ? {} // sin filtro: muestra todos
+        : { status: 'ACTIVE' }; // comportamiento actual por defecto
+
+    const categories: CategoryI[] = await Category.findAll({ where });
+    res.status(200).json({ categories });
+  } catch {
+    res.status(500).json({ error: "Error fetching categories" });
   }
+}
 
   public async getCategoryById(req: Request, res: Response) {
     try {

@@ -3,13 +3,20 @@ import { Medication, MedicationI } from "../../models/inventories/Medication";
 
 export class MedicationController {
   public async getAllMedications(req: Request, res: Response) {
-    try {
-      const medications: MedicationI[] = await Medication.findAll({ where: { status: "AVAILABLE" } });
-      res.status(200).json({ medications });
-    } catch {
-      res.status(500).json({ error: "Error fetching medications" });
-    }
+  try {
+    const statusParam = String(req.query.status || '').toUpperCase(); // '', 'ALL', 'AVAILABLE', 'UNAVAILABLE'
+
+    const where =
+      statusParam === 'ALL'
+        ? {} // sin filtro: muestra todos
+        : { status: 'AVAILABLE' }; // comportamiento actual por defecto
+
+    const medications: MedicationI[] = await Medication.findAll({ where });
+    res.status(200).json({ medications });
+  } catch {
+    res.status(500).json({ error: "Error fetching medications" });
   }
+}
 
   public async getMedicationById(req: Request, res: Response) {
     try {

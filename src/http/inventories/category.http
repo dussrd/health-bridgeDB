@@ -1,5 +1,5 @@
 // category.http
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYwMzE2MzE3LCJleHAiOjE3NjAzMTY5MTd9.RU1S9yMCbTOTEcGoglUjV1qvKIAhbHs78kTQPBoDVyQ
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYwNTYyMjEwLCJleHAiOjE3NjA1NjI4MTB9.M3jKLLfkO1_mjLNAxEPBR5fgEpINQpVL0aSWmINtqQA
 @baseUrl = http://localhost:3000
 
 ### ========== PUBLIC ==========
@@ -34,7 +34,7 @@ Content-Type: application/json
 DELETE {{baseUrl}}/api/category/public/1
 
 ### Soft delete category (PUBLIC)
-DELETE {{baseUrl}}/api/category/public/1/logic
+DELETE {{baseUrl}}/api/category/public/2/logic
 
 
 ### ========== AUTHENTICATED ==========
@@ -44,7 +44,7 @@ GET {{baseUrl}}/api/category
 Authorization: Bearer {{token}}
 
 ### Get category by ID (AUTH)
-GET {{baseUrl}}/api/category/1
+GET {{baseUrl}}/api/category/3
 Authorization: Bearer {{token}}
 
 ### Create category (AUTH)
@@ -53,13 +53,13 @@ Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "name": "Antibiotics",
+  "name": "enfermo",
   "description": "Bacterial infection meds",
   "status": "ACTIVE"
 }
 
 ### Update category (AUTH)
-PATCH {{baseUrl}}/api/category/1
+PATCH {{baseUrl}}/api/category/11
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
@@ -74,5 +74,5 @@ DELETE {{baseUrl}}/api/category/5
 Authorization: Bearer {{token}}
 
 ### Soft delete category (AUTH)
-DELETE {{baseUrl}}/api/category/9/logic
+DELETE {{baseUrl}}/api/category/11/logic
 Authorization: Bearer {{token}}

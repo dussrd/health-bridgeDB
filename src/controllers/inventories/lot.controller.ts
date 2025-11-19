@@ -3,13 +3,25 @@ import { Lot, LotI } from "../../models/inventories/Lot";
 
 export class LotController {
   public async getAllLots(req: Request, res: Response) {
-    try {
-      const lots: LotI[] = await Lot.findAll({ where: { status: "ACTIVE" } });
-      res.status(200).json({ lots });
-    } catch {
-      res.status(500).json({ error: "Error fetching lots" });
+  try {
+    const { status } = req.query as { status?: string };
+
+    const where: any = {};
+
+    if (!status || status === "ACTIVE") {
+      where.status = "ACTIVE";
+    } else if (status === "INACTIVE") {
+      where.status = "INACTIVE";
     }
+    // si status === ALL → no filtramos status
+
+    const lots: LotI[] = await Lot.findAll({ where });
+    res.status(200).json({ lots });
+  } catch (error) {
+    console.error("Error fetching lots", error);
+    res.status(500).json({ error: "Error fetching lots" });
   }
+}
 
   public async getLotById(req: Request, res: Response) {
     try {

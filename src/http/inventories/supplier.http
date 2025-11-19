@@ -1,5 +1,5 @@
 // supplier.http
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYwMzA4MjQwLCJleHAiOjE3NjAzMDg4NDB9.bJU_LaOKpYJ6fmBZ5VY1BEzOXeS1UGr0-9HUTs59y_s
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYwNTYyMjEwLCJleHAiOjE3NjA1NjI4MTB9.M3jKLLfkO1_mjLNAxEPBR5fgEpINQpVL0aSWmINtqQA
 @baseUrl = http://localhost:3000
 
 ### ========== PUBLIC ==========
@@ -36,7 +36,7 @@ Content-Type: application/json
 DELETE {{baseUrl}}/api/supplier/public/1
 
 ### Soft delete supplier (PUBLIC)
-DELETE {{baseUrl}}/api/supplier/public/1/logic
+DELETE {{baseUrl}}/api/supplier/public/2/logic
 
 
 ### ========== AUTHENTICATED ==========
@@ -46,7 +46,7 @@ GET {{baseUrl}}/api/supplier
 Authorization: Bearer {{token}}
 
 ### Get supplier by ID (AUTH)
-GET {{baseUrl}}/api/supplier/1
+GET {{baseUrl}}/api/supplier/3
 Authorization: Bearer {{token}}
 
 ### Create supplier (AUTH)
@@ -55,7 +55,7 @@ Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "name": "ACME Labs",
+  "name": "ACM Labs",
   "contactName": "Mary Gomez",
   "phone": "3001112233",
   "email": "sales@acme.com",
@@ -64,7 +64,7 @@ Content-Type: application/json
 }
 
 ### Update supplier (AUTH)
-PATCH {{baseUrl}}/api/supplier/1
+PATCH {{baseUrl}}/api/supplier/9
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
@@ -74,9 +74,9 @@ Content-Type: application/json
 }
 
 ### Hard delete supplier (AUTH)
-DELETE {{baseUrl}}/api/supplier/1
+DELETE {{baseUrl}}/api/supplier/9
 Authorization: Bearer {{token}}
 
 ### Soft delete supplier (AUTH)
-DELETE {{baseUrl}}/api/supplier/1/logic
+DELETE {{baseUrl}}/api/supplier/3/logic
 Authorization: Bearer {{token}}

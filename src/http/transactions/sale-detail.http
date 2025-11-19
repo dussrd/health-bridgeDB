@@ -16,7 +16,7 @@ Content-Type: application/json
 
 {
   "saleId": 1,
-  "medicationId": 1,
+  "medicationId": 4,
   "quantity": 2,
   "unitPrice": 12000,
   "discount": 0
@@ -36,7 +36,7 @@ Content-Type: application/json
 DELETE {{baseUrl}}/api/sale-detail/public/1
 
 ### Soft delete sale detail (PUBLIC)
-DELETE {{baseUrl}}/api/sale-detail/public/1/logic
+DELETE {{baseUrl}}/api/sale-detail/public/2/logic
 
 
 ### ========== AUTHENTICATED ==========
@@ -56,7 +56,7 @@ Content-Type: application/json
 
 {
   "saleId": 1,
-  "medicationId": 1,
+  "medicationId": 3,
   "quantity": 2,
   "unitPrice": 12000,
   "discount": 0

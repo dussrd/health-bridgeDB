@@ -4,7 +4,20 @@ import { Recipe, RecipeI } from "../../models/persons/Recipe";
 export class RecipeController {
   public async getAllRecipes(req: Request, res: Response) {
     try {
-      const recipes: RecipeI[] = await Recipe.findAll({ where: { status: "VALID" } });
+      const statusParam = (req.query.status as string | undefined) ?? "VALID";
+
+      let where: any = {};
+
+      if (statusParam === "ALL") {
+        // no filtramos por status → trae VALID + EXPIRED
+      } else if (statusParam === "EXPIRED") {
+        where.status = "EXPIRED";
+      } else {
+        // por defecto VALID
+        where.status = "VALID";
+      }
+
+      const recipes: RecipeI[] = await Recipe.findAll({ where });
       res.status(200).json({ recipes });
     } catch {
       res.status(500).json({ error: "Error fetching recipes" });
@@ -15,7 +28,9 @@ export class RecipeController {
     try {
       const { id: pk } = req.params;
       const recipe = await Recipe.findOne({ where: { id: pk, status: "VALID" } });
-      recipe ? res.status(200).json({ recipe }) : res.status(404).json({ error: "Recipe not found or expired" });
+      recipe
+        ? res.status(200).json({ recipe })
+        : res.status(404).json({ error: "Recipe not found or expired" });
     } catch {
       res.status(500).json({ error: "Error fetching recipe" });
     }
@@ -37,6 +52,7 @@ export class RecipeController {
     try {
       const exists = await Recipe.findOne({ where: { id: pk, status: "VALID" } });
       if (!exists) return res.status(404).json({ error: "Recipe not found or expired" });
+
       await exists.update({ customerId, issuedAt, notes, status });
       res.status(200).json(exists);
     } catch (error: any) {

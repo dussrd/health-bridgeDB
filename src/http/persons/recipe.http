@@ -1,5 +1,5 @@
 // recipe.http
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYwMzA4MjQwLCJleHAiOjE3NjAzMDg4NDB9.bJU_LaOKpYJ6fmBZ5VY1BEzOXeS1UGr0-9HUTs59y_s
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYwNTYyODI2LCJleHAiOjE3NjA1NjM0MjZ9.jzGYo0ZbZ9NoP4QVZkSdkKY_00C5cCD5GXPnRQ9d1og
 @baseUrl = http://localhost:3000
 
 ### ========== PUBLIC ==========
@@ -8,21 +8,21 @@
 GET {{baseUrl}}/api/recipe/public
 
 ### Get recipe by ID (PUBLIC)
-GET {{baseUrl}}/api/recipe/public/1
+GET {{baseUrl}}/api/recipe/public/4
 
 ### Create recipe (PUBLIC)
 POST {{baseUrl}}/api/recipe/public
 Content-Type: application/json
 
 {
-  "customerId": 1,
+  "customerId": 2,
   "issuedAt": "2025-10-10T14:00:00Z",
   "notes": "Take with food",
   "status": "VALID"
 }
 
 ### Update recipe (PUBLIC)
-PATCH {{baseUrl}}/api/recipe/public/1
+PATCH {{baseUrl}}/api/recipe/public/4
 Content-Type: application/json
 
 {
@@ -34,7 +34,7 @@ Content-Type: application/json
 DELETE {{baseUrl}}/api/recipe/public/1
 
 ### Soft delete recipe (PUBLIC)
-DELETE {{baseUrl}}/api/recipe/public/1/logic
+DELETE {{baseUrl}}/api/recipe/public/4/logic
 
 
 ### ========== AUTHENTICATED ==========
@@ -44,7 +44,7 @@ GET {{baseUrl}}/api/recipe
 Authorization: Bearer {{token}}
 
 ### Get recipe by ID (AUTH)
-GET {{baseUrl}}/api/recipe/1
+GET {{baseUrl}}/api/recipe/5
 Authorization: Bearer {{token}}
 
 ### Create recipe (AUTH)
@@ -53,14 +53,14 @@ Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "customerId": 1,
+  "customerId": 4,
   "issuedAt": "2025-10-10T14:00:00Z",
   "notes": "Take with food",
   "status": "VALID"
 }
 
 ### Update recipe (AUTH)
-PATCH {{baseUrl}}/api/recipe/1
+PATCH {{baseUrl}}/api/recipe/54
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
@@ -70,9 +70,9 @@ Content-Type: application/json
 }
 
 ### Hard delete recipe (AUTH)
-DELETE {{baseUrl}}/api/recipe/1
+DELETE {{baseUrl}}/api/recipe/5
 Authorization: Bearer {{token}}
 
 ### Soft delete recipe (AUTH)
-DELETE {{baseUrl}}/api/recipe/1/logic
+DELETE {{baseUrl}}/api/recipe/9/logic
 Authorization: Bearer {{token}}

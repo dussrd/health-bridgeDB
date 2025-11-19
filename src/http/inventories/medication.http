@@ -1,5 +1,5 @@
 // medication.http
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYwMzA4MjQwLCJleHAiOjE3NjAzMDg4NDB9.bJU_LaOKpYJ6fmBZ5VY1BEzOXeS1UGr0-9HUTs59y_s
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYwNTYyMjEwLCJleHAiOjE3NjA1NjI4MTB9.M3jKLLfkO1_mjLNAxEPBR5fgEpINQpVL0aSWmINtqQA
 @baseUrl = http://localhost:3000
 
 ### ========== PUBLIC ==========
@@ -20,12 +20,12 @@ Content-Type: application/json
   "unit": "capsule",
   "price": 1200.50,
   "stock": 150,
-  "categoryId": 1,
+  "categoryId": 3,
   "status": "AVAILABLE"
 }
 
 ### Update medication (PUBLIC)
-PATCH {{baseUrl}}/api/medication/public/1
+PATCH {{baseUrl}}/api/medication/public/4
 Content-Type: application/json
 
 {
@@ -38,7 +38,7 @@ Content-Type: application/json
 DELETE {{baseUrl}}/api/medication/public/1
 
 ### Soft delete medication (PUBLIC)
-DELETE {{baseUrl}}/api/medication/public/1/logic
+DELETE {{baseUrl}}/api/medication/public/4/logic
 
 
 ### ========== AUTHENTICATED ==========
@@ -48,7 +48,7 @@ GET {{baseUrl}}/api/medication
 Authorization: Bearer {{token}}
 
 ### Get medication by ID (AUTH)
-GET {{baseUrl}}/api/medication/1
+GET {{baseUrl}}/api/medication/5
 Authorization: Bearer {{token}}
 
 ### Create medication (AUTH)
@@ -57,17 +57,17 @@ Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "name": "Amoxicillin 500mg",
+  "name": "Amoxicilli 500mg",
   "description": "Capsules",
   "unit": "capsule",
   "price": 1200.50,
   "stock": 150,
-  "categoryId": 1,
+  "categoryId": 4,
   "status": "AVAILABLE"
 }
 
 ### Update medication (AUTH)
-PATCH {{baseUrl}}/api/medication/1
+PATCH {{baseUrl}}/api/medication/40
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
@@ -78,9 +78,9 @@ Content-Type: application/json
 }
 
 ### Hard delete medication (AUTH)
-DELETE {{baseUrl}}/api/medication/1
+DELETE {{baseUrl}}/api/medication/40
 Authorization: Bearer {{token}}
 
 ### Soft delete medication (AUTH)
-DELETE {{baseUrl}}/api/medication/1/logic
+DELETE {{baseUrl}}/api/medication/5/logic
 Authorization: Bearer {{token}}

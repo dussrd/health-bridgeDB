@@ -16,7 +16,7 @@ Content-Type: application/json
 
 {
   "recipeId": 1,
-  "medicationId": 1,
+  "medicationId": 2,
   "dosage": "500mg every 8h for 7 days",
   "quantity": 21
 }
@@ -34,7 +34,7 @@ Content-Type: application/json
 DELETE {{baseUrl}}/api/recipe-detail/public/1
 
 ### Soft delete recipe detail (PUBLIC)
-DELETE {{baseUrl}}/api/recipe-detail/public/1/logic
+DELETE {{baseUrl}}/api/recipe-detail/public/3/logic
 
 
 ### ========== AUTHENTICATED ==========
@@ -54,7 +54,7 @@ Content-Type: application/json
 
 {
   "recipeId": 1,
-  "medicationId": 1,
+  "medicationId": 3,
   "dosage": "500mg every 8h for 7 days",
   "quantity": 21
 }

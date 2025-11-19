@@ -1,5 +1,5 @@
 // sale.http
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYwMzA4OTI0LCJleHAiOjE3NjAzMDk1MjR9.H_swpJrCn0KBFihJ5tsDU3_drkf2WtezO9G3PiDfdJI
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYwNTYyODI2LCJleHAiOjE3NjA1NjM0MjZ9.jzGYo0ZbZ9NoP4QVZkSdkKY_00C5cCD5GXPnRQ9d1og
 @baseUrl = http://localhost:3000
 
 ### ========== PUBLIC ==========
@@ -15,13 +15,13 @@ POST {{baseUrl}}/api/sale/public
 Content-Type: application/json
 
 {
-  "customerId": 1,
+  "customerId": 4,
   "saleDate": "2025-10-11T16:20:00Z",
   "subtotal": 20000,
   "taxTotal": 3800,
   "total": 23800,
   "status": "ACTIVE",
-  "taxId": 1
+  "taxId": 3
 }
 
 ### Update sale (PUBLIC)
@@ -30,7 +30,7 @@ Content-Type: application/json
 
 {
   "status": "ACTIVE",
-  "taxId": 1
+  "taxId": 3
 }
 
 ### Hard delete sale (PUBLIC)
@@ -56,27 +56,27 @@ Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "customerId": 1,
+  "customerId": 4,
   "saleDate": "2025-10-11T16:20:00Z",
   "subtotal": 20000,
   "taxTotal": 3800,
   "total": 23800,
   "status": "ACTIVE",
-  "taxId": 1
+  "taxId": 3
 }
 
 ### Update sale (AUTH)
-PATCH {{baseUrl}}/api/sale/1
+PATCH {{baseUrl}}/api/sale/87
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
   "status": "ACTIVE",
-  "taxId": 1
+  "taxId": 3
 }
 
 ### Hard delete sale (AUTH)
-DELETE {{baseUrl}}/api/sale/1
+DELETE {{baseUrl}}/api/sale/87
 Authorization: Bearer {{token}}
 
 ### Soft delete sale (AUTH)
